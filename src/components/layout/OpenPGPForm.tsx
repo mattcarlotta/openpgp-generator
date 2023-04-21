@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { batch } from 'solid-js';
-import * as openpgp from 'openpgp';
+import { generateKey } from 'openpgp/lightweight';
 import clsx from '../../utils/clsx';
 import Input from './Input'
 
@@ -53,7 +53,7 @@ export default function OpenPGPForm() {
         })
 
         try {
-            const { privateKey, publicKey } = await openpgp.generateKey({
+            const { privateKey, publicKey } = await generateKey({
                 type: 'rsa',
                 rsaBits: 4096,
                 userIDs: [{ name: store.name, email: store.email }],
