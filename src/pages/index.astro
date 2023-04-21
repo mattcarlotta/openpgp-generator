@@ -1,0 +1,10 @@
+---
+import MainLayout from '../layouts/main.astro'
+import OpenPGPForm from '../components/layout/OpenPGPForm.tsx'
+---
+
+<MainLayout description="An example astro and solidjs application that generates openpgp keys">
+  <section class="flex min-h-body flex-col items-center justify-center">
+    <OpenPGPForm client:load />
+  </section>
+</MainLayout>

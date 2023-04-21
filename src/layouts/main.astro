@@ -1,0 +1,72 @@
+---
+import concatTitle from '../utils/concatTitle'
+
+interface Props {
+  description?: string
+  title?: string
+  type?: string
+}
+
+const { description, title, type } = Astro.props
+const canonicalURL = Astro.url.toString()
+const documentTitle = concatTitle(title, description)
+const documentType = type || 'website'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="apple-touch-icon" sizes="192x192" href="/logo_192x192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/logo_192x192.png" color="#01406C" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="all" />
+    <meta name="googlebot" content="all" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="description" content={description} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={documentType} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={documentType} />
+    <meta property="og:site_name" content="OpenPGP Key Generator - Matt Carlotta" />
+    <title>{documentTitle}</title>
+    <style is:inline>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        color: #fff;
+        margin: 0;
+        background-color: rgb(1 0 7 / 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      :-moz-focus-inner {
+        border-width: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main" class="mx-auto w-full max-w-main px-2.5 lg:px-0">
+      <div class="min-h-body p-2.5 md:p-0">
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>
