@@ -76,7 +76,7 @@ export default function OpenPGPForm() {
 
     return (
         <div class="w-full max-w-xl flex flex-col rounded bg-primary-800 p-8 text-white my-10">
-            <h1 class="text-center text-3xl">Generate OpenPGP Keys</h1>
+            <h1 class="text-center text-3xl">Generate OpenPGP RSA Keys</h1>
             <form class="full flex flex-col space-y-2" onSubmit={handleSubmit}>
                 <Input
                     min="1"
