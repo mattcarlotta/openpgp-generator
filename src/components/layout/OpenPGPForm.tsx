@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 import { batch } from 'solid-js';
-import { generateKey } from 'openpgp/lightweight';
+import { generateKey } from 'openpgp';
 import clsx from '../../utils/clsx';
 import Input from './Input'
 
